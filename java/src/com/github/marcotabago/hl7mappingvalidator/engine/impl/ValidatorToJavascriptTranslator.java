@@ -81,9 +81,11 @@ public class ValidatorToJavascriptTranslator implements JavascriptTranslator {
 		HapiContext hapiContext = new DefaultHapiContext(validationContext);
 		Parser hapiParser = hapiContext.getGenericParser();
 		
-		Message sourceHl7 = hapiParser.parse(this.sourceHl7Message);
-		Terser terserSource = new Terser(sourceHl7);
-		javascriptWrapper.addReferencedObject(SOURCE_TERSER_REFERENCED_OBJECT_NAME, terserSource);
+		if (this.sourceHl7Message != null && !this.sourceHl7Message.isEmpty()) {
+			Message sourceHl7 = hapiParser.parse(this.sourceHl7Message);
+			Terser terserSource = new Terser(sourceHl7);
+			javascriptWrapper.addReferencedObject(SOURCE_TERSER_REFERENCED_OBJECT_NAME, terserSource);
+		}
 		
 		Message targetHl7 = hapiParser.parse(this.destinationHl7Message);
 		Terser terserTarget = new Terser(targetHl7);

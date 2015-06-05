@@ -1,5 +1,4 @@
 // MSH Segment
-// @('MSH-3').length() ?> 50;
 @('MSH-3') ?= 'SOURCEAPP';
 @('MSH-4') ?= 'FACILITYA';
 @('MSH-5') ?= 'RECEIVINGAPP';

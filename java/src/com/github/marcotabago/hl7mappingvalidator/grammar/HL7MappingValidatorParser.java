@@ -29,16 +29,17 @@ public class HL7MappingValidatorParser extends Parser {
 		BitOr=38, And=39, Or=40, MultiplyAssign=41, DivideAssign=42, ModulusAssign=43, 
 		PlusAssign=44, MinusAssign=45, LeftShiftArithmeticAssign=46, RightShiftArithmeticAssign=47, 
 		RightShiftLogicalAssign=48, BitAndAssign=49, BitXorAssign=50, BitOrAssign=51, 
-		AssertLessThan=52, AssertMoreThan=53, AssertLessThanEquals=54, AssertGreaterThanEquals=55, 
-		AssertEquals=56, AssertNotEquals=57, NullLiteral=58, BooleanLiteral=59, 
-		DecimalLiteral=60, HexIntegerLiteral=61, OctalIntegerLiteral=62, Break=63, 
-		Do=64, Instanceof=65, Typeof=66, Case=67, Else=68, New=69, Var=70, Catch=71, 
-		Finally=72, Return=73, Void=74, Continue=75, For=76, Switch=77, While=78, 
-		Debugger=79, Function=80, This=81, With=82, Default=83, If=84, Throw=85, 
-		Delete=86, In=87, Try=88, Class=89, Enum=90, Extends=91, Super=92, Const=93, 
-		Export=94, Import=95, Implements=96, Let=97, Private=98, Public=99, Interface=100, 
-		Package=101, Protected=102, Static=103, Yield=104, Identifier=105, StringLiteral=106, 
-		WhiteSpaces=107, MultiLineComment=108, SingleLineComment=109, UnexpectedCharacter=110;
+		AssertIn=52, AssertNotIn=53, AssertLessThan=54, AssertMoreThan=55, AssertLessThanEquals=56, 
+		AssertGreaterThanEquals=57, AssertEquals=58, AssertNotEquals=59, NullLiteral=60, 
+		BooleanLiteral=61, DecimalLiteral=62, HexIntegerLiteral=63, OctalIntegerLiteral=64, 
+		Break=65, Do=66, Instanceof=67, Typeof=68, Case=69, Else=70, New=71, Var=72, 
+		Catch=73, Finally=74, Return=75, Void=76, Continue=77, For=78, Switch=79, 
+		While=80, Debugger=81, Function=82, This=83, With=84, Default=85, If=86, 
+		Throw=87, Delete=88, In=89, Try=90, Class=91, Enum=92, Extends=93, Super=94, 
+		Const=95, Export=96, Import=97, Implements=98, Let=99, Private=100, Public=101, 
+		Interface=102, Package=103, Protected=104, Static=105, Yield=106, Identifier=107, 
+		StringLiteral=108, WhiteSpaces=109, MultiLineComment=110, SingleLineComment=111, 
+		UnexpectedCharacter=112;
 	public static final String[] tokenNames = {
 		"<INVALID>", "'??'", "RegularExpressionLiteral", "LineTerminator", "'['", 
 		"']'", "'('", "')'", "'{'", "'}'", "';'", "','", "'='", "'?'", "':'", 
@@ -46,16 +47,16 @@ public class HL7MappingValidatorParser extends Parser {
 		"'>>'", "'<<'", "'>>>'", "'<'", "'>'", "'<='", "'>='", "'=='", "'!='", 
 		"'==='", "'!=='", "'&'", "'^'", "'|'", "'&&'", "'||'", "'*='", "'/='", 
 		"'%='", "'+='", "'-='", "'<<='", "'>>='", "'>>>='", "'&='", "'^='", "'|='", 
-		"'?<'", "'?>'", "'?<='", "'?>='", "'?='", "'?!'", "'null'", "BooleanLiteral", 
-		"DecimalLiteral", "HexIntegerLiteral", "OctalIntegerLiteral", "'break'", 
-		"'do'", "'instanceof'", "'typeof'", "'case'", "'else'", "'new'", "'var'", 
-		"'catch'", "'finally'", "'return'", "'void'", "'continue'", "'for'", "'switch'", 
-		"'while'", "'debugger'", "'function'", "'this'", "'with'", "'default'", 
-		"'if'", "'throw'", "'delete'", "'in'", "'try'", "'class'", "'enum'", "'extends'", 
-		"'super'", "'const'", "'export'", "'import'", "Implements", "Let", "Private", 
-		"Public", "Interface", "Package", "Protected", "Static", "Yield", "Identifier", 
-		"StringLiteral", "WhiteSpaces", "MultiLineComment", "SingleLineComment", 
-		"UnexpectedCharacter"
+		"'?:'", "'?!:'", "'?<'", "'?>'", "'?<='", "'?>='", "'?='", "'?!'", "'null'", 
+		"BooleanLiteral", "DecimalLiteral", "HexIntegerLiteral", "OctalIntegerLiteral", 
+		"'break'", "'do'", "'instanceof'", "'typeof'", "'case'", "'else'", "'new'", 
+		"'var'", "'catch'", "'finally'", "'return'", "'void'", "'continue'", "'for'", 
+		"'switch'", "'while'", "'debugger'", "'function'", "'this'", "'with'", 
+		"'default'", "'if'", "'throw'", "'delete'", "'in'", "'try'", "'class'", 
+		"'enum'", "'extends'", "'super'", "'const'", "'export'", "'import'", "Implements", 
+		"Let", "Private", "Public", "Interface", "Package", "Protected", "Static", 
+		"Yield", "Identifier", "StringLiteral", "WhiteSpaces", "MultiLineComment", 
+		"SingleLineComment", "UnexpectedCharacter"
 	};
 	public static final int
 		RULE_program = 0, RULE_assertionStatement = 1, RULE_assertTrueStatement = 2, 
@@ -203,7 +204,7 @@ public class HL7MappingValidatorParser extends Parser {
 			{
 			setState(123);
 			_la = _input.LA(1);
-			if ((((_la) & ~0x3f) == 0 && ((1L << _la) & ((1L << RegularExpressionLiteral) | (1L << OpenBracket) | (1L << OpenParen) | (1L << OpenBrace) | (1L << PlusPlus) | (1L << MinusMinus) | (1L << Plus) | (1L << Minus) | (1L << BitNot) | (1L << Not) | (1L << AssertLessThan) | (1L << AssertMoreThan) | (1L << AssertLessThanEquals) | (1L << AssertGreaterThanEquals) | (1L << AssertEquals) | (1L << AssertNotEquals) | (1L << NullLiteral) | (1L << BooleanLiteral) | (1L << DecimalLiteral) | (1L << HexIntegerLiteral) | (1L << OctalIntegerLiteral))) != 0) || ((((_la - 66)) & ~0x3f) == 0 && ((1L << (_la - 66)) & ((1L << (Typeof - 66)) | (1L << (New - 66)) | (1L << (Void - 66)) | (1L << (Function - 66)) | (1L << (This - 66)) | (1L << (Delete - 66)) | (1L << (Identifier - 66)) | (1L << (StringLiteral - 66)))) != 0)) {
+			if ((((_la) & ~0x3f) == 0 && ((1L << _la) & ((1L << RegularExpressionLiteral) | (1L << OpenBracket) | (1L << OpenParen) | (1L << OpenBrace) | (1L << PlusPlus) | (1L << MinusMinus) | (1L << Plus) | (1L << Minus) | (1L << BitNot) | (1L << Not) | (1L << AssertIn) | (1L << AssertNotIn) | (1L << AssertLessThan) | (1L << AssertMoreThan) | (1L << AssertLessThanEquals) | (1L << AssertGreaterThanEquals) | (1L << AssertEquals) | (1L << AssertNotEquals) | (1L << NullLiteral) | (1L << BooleanLiteral) | (1L << DecimalLiteral) | (1L << HexIntegerLiteral))) != 0) || ((((_la - 64)) & ~0x3f) == 0 && ((1L << (_la - 64)) & ((1L << (OctalIntegerLiteral - 64)) | (1L << (Typeof - 64)) | (1L << (New - 64)) | (1L << (Void - 64)) | (1L << (Function - 64)) | (1L << (This - 64)) | (1L << (Delete - 64)) | (1L << (Identifier - 64)) | (1L << (StringLiteral - 64)))) != 0)) {
 				{
 				setState(122); assertionStatements();
 				}
@@ -322,7 +323,7 @@ public class HL7MappingValidatorParser extends Parser {
 			setState(131); ((AssertTrueStatementContext)_localctx).assertionStatementLeftHandSide = singleExpression(0);
 			setState(135);
 			_la = _input.LA(1);
-			if ((((_la) & ~0x3f) == 0 && ((1L << _la) & ((1L << AssertLessThan) | (1L << AssertMoreThan) | (1L << AssertLessThanEquals) | (1L << AssertGreaterThanEquals) | (1L << AssertEquals) | (1L << AssertNotEquals))) != 0)) {
+			if ((((_la) & ~0x3f) == 0 && ((1L << _la) & ((1L << AssertIn) | (1L << AssertNotIn) | (1L << AssertLessThan) | (1L << AssertMoreThan) | (1L << AssertLessThanEquals) | (1L << AssertGreaterThanEquals) | (1L << AssertEquals) | (1L << AssertNotEquals))) != 0)) {
 				{
 				setState(132); assertionOperator();
 				setState(133); ((AssertTrueStatementContext)_localctx).assertionStatementRightHandSide = singleExpression(0);
@@ -492,7 +493,7 @@ public class HL7MappingValidatorParser extends Parser {
 				setState(152); 
 				_errHandler.sync(this);
 				_la = _input.LA(1);
-			} while ( (((_la) & ~0x3f) == 0 && ((1L << _la) & ((1L << RegularExpressionLiteral) | (1L << OpenBracket) | (1L << OpenParen) | (1L << OpenBrace) | (1L << PlusPlus) | (1L << MinusMinus) | (1L << Plus) | (1L << Minus) | (1L << BitNot) | (1L << Not) | (1L << AssertLessThan) | (1L << AssertMoreThan) | (1L << AssertLessThanEquals) | (1L << AssertGreaterThanEquals) | (1L << AssertEquals) | (1L << AssertNotEquals) | (1L << NullLiteral) | (1L << BooleanLiteral) | (1L << DecimalLiteral) | (1L << HexIntegerLiteral) | (1L << OctalIntegerLiteral))) != 0) || ((((_la - 66)) & ~0x3f) == 0 && ((1L << (_la - 66)) & ((1L << (Typeof - 66)) | (1L << (New - 66)) | (1L << (Void - 66)) | (1L << (Function - 66)) | (1L << (This - 66)) | (1L << (Delete - 66)) | (1L << (Identifier - 66)) | (1L << (StringLiteral - 66)))) != 0) );
+			} while ( (((_la) & ~0x3f) == 0 && ((1L << _la) & ((1L << RegularExpressionLiteral) | (1L << OpenBracket) | (1L << OpenParen) | (1L << OpenBrace) | (1L << PlusPlus) | (1L << MinusMinus) | (1L << Plus) | (1L << Minus) | (1L << BitNot) | (1L << Not) | (1L << AssertIn) | (1L << AssertNotIn) | (1L << AssertLessThan) | (1L << AssertMoreThan) | (1L << AssertLessThanEquals) | (1L << AssertGreaterThanEquals) | (1L << AssertEquals) | (1L << AssertNotEquals) | (1L << NullLiteral) | (1L << BooleanLiteral) | (1L << DecimalLiteral) | (1L << HexIntegerLiteral))) != 0) || ((((_la - 64)) & ~0x3f) == 0 && ((1L << (_la - 64)) & ((1L << (OctalIntegerLiteral - 64)) | (1L << (Typeof - 64)) | (1L << (New - 64)) | (1L << (Void - 64)) | (1L << (Function - 64)) | (1L << (This - 64)) | (1L << (Delete - 64)) | (1L << (Identifier - 64)) | (1L << (StringLiteral - 64)))) != 0) );
 			}
 		}
 		catch (RecognitionException re) {
@@ -1491,7 +1492,7 @@ public class HL7MappingValidatorParser extends Parser {
 				setState(240); match(OpenParen);
 				setState(242);
 				_la = _input.LA(1);
-				if ((((_la) & ~0x3f) == 0 && ((1L << _la) & ((1L << RegularExpressionLiteral) | (1L << OpenBracket) | (1L << OpenParen) | (1L << OpenBrace) | (1L << PlusPlus) | (1L << MinusMinus) | (1L << Plus) | (1L << Minus) | (1L << BitNot) | (1L << Not) | (1L << AssertLessThan) | (1L << AssertMoreThan) | (1L << AssertLessThanEquals) | (1L << AssertGreaterThanEquals) | (1L << AssertEquals) | (1L << AssertNotEquals) | (1L << NullLiteral) | (1L << BooleanLiteral) | (1L << DecimalLiteral) | (1L << HexIntegerLiteral) | (1L << OctalIntegerLiteral))) != 0) || ((((_la - 66)) & ~0x3f) == 0 && ((1L << (_la - 66)) & ((1L << (Typeof - 66)) | (1L << (New - 66)) | (1L << (Void - 66)) | (1L << (Function - 66)) | (1L << (This - 66)) | (1L << (Delete - 66)) | (1L << (Identifier - 66)) | (1L << (StringLiteral - 66)))) != 0)) {
+				if ((((_la) & ~0x3f) == 0 && ((1L << _la) & ((1L << RegularExpressionLiteral) | (1L << OpenBracket) | (1L << OpenParen) | (1L << OpenBrace) | (1L << PlusPlus) | (1L << MinusMinus) | (1L << Plus) | (1L << Minus) | (1L << BitNot) | (1L << Not) | (1L << AssertIn) | (1L << AssertNotIn) | (1L << AssertLessThan) | (1L << AssertMoreThan) | (1L << AssertLessThanEquals) | (1L << AssertGreaterThanEquals) | (1L << AssertEquals) | (1L << AssertNotEquals) | (1L << NullLiteral) | (1L << BooleanLiteral) | (1L << DecimalLiteral) | (1L << HexIntegerLiteral))) != 0) || ((((_la - 64)) & ~0x3f) == 0 && ((1L << (_la - 64)) & ((1L << (OctalIntegerLiteral - 64)) | (1L << (Typeof - 64)) | (1L << (New - 64)) | (1L << (Void - 64)) | (1L << (Function - 64)) | (1L << (This - 64)) | (1L << (Delete - 64)) | (1L << (Identifier - 64)) | (1L << (StringLiteral - 64)))) != 0)) {
 					{
 					setState(241); expressionSequence();
 					}
@@ -1500,7 +1501,7 @@ public class HL7MappingValidatorParser extends Parser {
 				setState(244); match(SemiColon);
 				setState(246);
 				_la = _input.LA(1);
-				if ((((_la) & ~0x3f) == 0 && ((1L << _la) & ((1L << RegularExpressionLiteral) | (1L << OpenBracket) | (1L << OpenParen) | (1L << OpenBrace) | (1L << PlusPlus) | (1L << MinusMinus) | (1L << Plus) | (1L << Minus) | (1L << BitNot) | (1L << Not) | (1L << AssertLessThan) | (1L << AssertMoreThan) | (1L << AssertLessThanEquals) | (1L << AssertGreaterThanEquals) | (1L << AssertEquals) | (1L << AssertNotEquals) | (1L << NullLiteral) | (1L << BooleanLiteral) | (1L << DecimalLiteral) | (1L << HexIntegerLiteral) | (1L << OctalIntegerLiteral))) != 0) || ((((_la - 66)) & ~0x3f) == 0 && ((1L << (_la - 66)) & ((1L << (Typeof - 66)) | (1L << (New - 66)) | (1L << (Void - 66)) | (1L << (Function - 66)) | (1L << (This - 66)) | (1L << (Delete - 66)) | (1L << (Identifier - 66)) | (1L << (StringLiteral - 66)))) != 0)) {
+				if ((((_la) & ~0x3f) == 0 && ((1L << _la) & ((1L << RegularExpressionLiteral) | (1L << OpenBracket) | (1L << OpenParen) | (1L << OpenBrace) | (1L << PlusPlus) | (1L << MinusMinus) | (1L << Plus) | (1L << Minus) | (1L << BitNot) | (1L << Not) | (1L << AssertIn) | (1L << AssertNotIn) | (1L << AssertLessThan) | (1L << AssertMoreThan) | (1L << AssertLessThanEquals) | (1L << AssertGreaterThanEquals) | (1L << AssertEquals) | (1L << AssertNotEquals) | (1L << NullLiteral) | (1L << BooleanLiteral) | (1L << DecimalLiteral) | (1L << HexIntegerLiteral))) != 0) || ((((_la - 64)) & ~0x3f) == 0 && ((1L << (_la - 64)) & ((1L << (OctalIntegerLiteral - 64)) | (1L << (Typeof - 64)) | (1L << (New - 64)) | (1L << (Void - 64)) | (1L << (Function - 64)) | (1L << (This - 64)) | (1L << (Delete - 64)) | (1L << (Identifier - 64)) | (1L << (StringLiteral - 64)))) != 0)) {
 					{
 					setState(245); expressionSequence();
 					}
@@ -1509,7 +1510,7 @@ public class HL7MappingValidatorParser extends Parser {
 				setState(248); match(SemiColon);
 				setState(250);
 				_la = _input.LA(1);
-				if ((((_la) & ~0x3f) == 0 && ((1L << _la) & ((1L << RegularExpressionLiteral) | (1L << OpenBracket) | (1L << OpenParen) | (1L << OpenBrace) | (1L << PlusPlus) | (1L << MinusMinus) | (1L << Plus) | (1L << Minus) | (1L << BitNot) | (1L << Not) | (1L << AssertLessThan) | (1L << AssertMoreThan) | (1L << AssertLessThanEquals) | (1L << AssertGreaterThanEquals) | (1L << AssertEquals) | (1L << AssertNotEquals) | (1L << NullLiteral) | (1L << BooleanLiteral) | (1L << DecimalLiteral) | (1L << HexIntegerLiteral) | (1L << OctalIntegerLiteral))) != 0) || ((((_la - 66)) & ~0x3f) == 0 && ((1L << (_la - 66)) & ((1L << (Typeof - 66)) | (1L << (New - 66)) | (1L << (Void - 66)) | (1L << (Function - 66)) | (1L << (This - 66)) | (1L << (Delete - 66)) | (1L << (Identifier - 66)) | (1L << (StringLiteral - 66)))) != 0)) {
+				if ((((_la) & ~0x3f) == 0 && ((1L << _la) & ((1L << RegularExpressionLiteral) | (1L << OpenBracket) | (1L << OpenParen) | (1L << OpenBrace) | (1L << PlusPlus) | (1L << MinusMinus) | (1L << Plus) | (1L << Minus) | (1L << BitNot) | (1L << Not) | (1L << AssertIn) | (1L << AssertNotIn) | (1L << AssertLessThan) | (1L << AssertMoreThan) | (1L << AssertLessThanEquals) | (1L << AssertGreaterThanEquals) | (1L << AssertEquals) | (1L << AssertNotEquals) | (1L << NullLiteral) | (1L << BooleanLiteral) | (1L << DecimalLiteral) | (1L << HexIntegerLiteral))) != 0) || ((((_la - 64)) & ~0x3f) == 0 && ((1L << (_la - 64)) & ((1L << (OctalIntegerLiteral - 64)) | (1L << (Typeof - 64)) | (1L << (New - 64)) | (1L << (Void - 64)) | (1L << (Function - 64)) | (1L << (This - 64)) | (1L << (Delete - 64)) | (1L << (Identifier - 64)) | (1L << (StringLiteral - 64)))) != 0)) {
 					{
 					setState(249); expressionSequence();
 					}
@@ -1530,7 +1531,7 @@ public class HL7MappingValidatorParser extends Parser {
 				setState(258); match(SemiColon);
 				setState(260);
 				_la = _input.LA(1);
-				if ((((_la) & ~0x3f) == 0 && ((1L << _la) & ((1L << RegularExpressionLiteral) | (1L << OpenBracket) | (1L << OpenParen) | (1L << OpenBrace) | (1L << PlusPlus) | (1L << MinusMinus) | (1L << Plus) | (1L << Minus) | (1L << BitNot) | (1L << Not) | (1L << AssertLessThan) | (1L << AssertMoreThan) | (1L << AssertLessThanEquals) | (1L << AssertGreaterThanEquals) | (1L << AssertEquals) | (1L << AssertNotEquals) | (1L << NullLiteral) | (1L << BooleanLiteral) | (1L << DecimalLiteral) | (1L << HexIntegerLiteral) | (1L << OctalIntegerLiteral))) != 0) || ((((_la - 66)) & ~0x3f) == 0 && ((1L << (_la - 66)) & ((1L << (Typeof - 66)) | (1L << (New - 66)) | (1L << (Void - 66)) | (1L << (Function - 66)) | (1L << (This - 66)) | (1L << (Delete - 66)) | (1L << (Identifier - 66)) | (1L << (StringLiteral - 66)))) != 0)) {
+				if ((((_la) & ~0x3f) == 0 && ((1L << _la) & ((1L << RegularExpressionLiteral) | (1L << OpenBracket) | (1L << OpenParen) | (1L << OpenBrace) | (1L << PlusPlus) | (1L << MinusMinus) | (1L << Plus) | (1L << Minus) | (1L << BitNot) | (1L << Not) | (1L << AssertIn) | (1L << AssertNotIn) | (1L << AssertLessThan) | (1L << AssertMoreThan) | (1L << AssertLessThanEquals) | (1L << AssertGreaterThanEquals) | (1L << AssertEquals) | (1L << AssertNotEquals) | (1L << NullLiteral) | (1L << BooleanLiteral) | (1L << DecimalLiteral) | (1L << HexIntegerLiteral))) != 0) || ((((_la - 64)) & ~0x3f) == 0 && ((1L << (_la - 64)) & ((1L << (OctalIntegerLiteral - 64)) | (1L << (Typeof - 64)) | (1L << (New - 64)) | (1L << (Void - 64)) | (1L << (Function - 64)) | (1L << (This - 64)) | (1L << (Delete - 64)) | (1L << (Identifier - 64)) | (1L << (StringLiteral - 64)))) != 0)) {
 					{
 					setState(259); expressionSequence();
 					}
@@ -1539,7 +1540,7 @@ public class HL7MappingValidatorParser extends Parser {
 				setState(262); match(SemiColon);
 				setState(264);
 				_la = _input.LA(1);
-				if ((((_la) & ~0x3f) == 0 && ((1L << _la) & ((1L << RegularExpressionLiteral) | (1L << OpenBracket) | (1L << OpenParen) | (1L << OpenBrace) | (1L << PlusPlus) | (1L << MinusMinus) | (1L << Plus) | (1L << Minus) | (1L << BitNot) | (1L << Not) | (1L << AssertLessThan) | (1L << AssertMoreThan) | (1L << AssertLessThanEquals) | (1L << AssertGreaterThanEquals) | (1L << AssertEquals) | (1L << AssertNotEquals) | (1L << NullLiteral) | (1L << BooleanLiteral) | (1L << DecimalLiteral) | (1L << HexIntegerLiteral) | (1L << OctalIntegerLiteral))) != 0) || ((((_la - 66)) & ~0x3f) == 0 && ((1L << (_la - 66)) & ((1L << (Typeof - 66)) | (1L << (New - 66)) | (1L << (Void - 66)) | (1L << (Function - 66)) | (1L << (This - 66)) | (1L << (Delete - 66)) | (1L << (Identifier - 66)) | (1L << (StringLiteral - 66)))) != 0)) {
+				if ((((_la) & ~0x3f) == 0 && ((1L << _la) & ((1L << RegularExpressionLiteral) | (1L << OpenBracket) | (1L << OpenParen) | (1L << OpenBrace) | (1L << PlusPlus) | (1L << MinusMinus) | (1L << Plus) | (1L << Minus) | (1L << BitNot) | (1L << Not) | (1L << AssertIn) | (1L << AssertNotIn) | (1L << AssertLessThan) | (1L << AssertMoreThan) | (1L << AssertLessThanEquals) | (1L << AssertGreaterThanEquals) | (1L << AssertEquals) | (1L << AssertNotEquals) | (1L << NullLiteral) | (1L << BooleanLiteral) | (1L << DecimalLiteral) | (1L << HexIntegerLiteral))) != 0) || ((((_la - 64)) & ~0x3f) == 0 && ((1L << (_la - 64)) & ((1L << (OctalIntegerLiteral - 64)) | (1L << (Typeof - 64)) | (1L << (New - 64)) | (1L << (Void - 64)) | (1L << (Function - 64)) | (1L << (This - 64)) | (1L << (Delete - 64)) | (1L << (Identifier - 64)) | (1L << (StringLiteral - 64)))) != 0)) {
 					{
 					setState(263); expressionSequence();
 					}
@@ -3234,7 +3235,7 @@ public class HL7MappingValidatorParser extends Parser {
 			setState(479); match(OpenParen);
 			setState(481);
 			_la = _input.LA(1);
-			if ((((_la) & ~0x3f) == 0 && ((1L << _la) & ((1L << RegularExpressionLiteral) | (1L << OpenBracket) | (1L << OpenParen) | (1L << OpenBrace) | (1L << PlusPlus) | (1L << MinusMinus) | (1L << Plus) | (1L << Minus) | (1L << BitNot) | (1L << Not) | (1L << AssertLessThan) | (1L << AssertMoreThan) | (1L << AssertLessThanEquals) | (1L << AssertGreaterThanEquals) | (1L << AssertEquals) | (1L << AssertNotEquals) | (1L << NullLiteral) | (1L << BooleanLiteral) | (1L << DecimalLiteral) | (1L << HexIntegerLiteral) | (1L << OctalIntegerLiteral))) != 0) || ((((_la - 66)) & ~0x3f) == 0 && ((1L << (_la - 66)) & ((1L << (Typeof - 66)) | (1L << (New - 66)) | (1L << (Void - 66)) | (1L << (Function - 66)) | (1L << (This - 66)) | (1L << (Delete - 66)) | (1L << (Identifier - 66)) | (1L << (StringLiteral - 66)))) != 0)) {
+			if ((((_la) & ~0x3f) == 0 && ((1L << _la) & ((1L << RegularExpressionLiteral) | (1L << OpenBracket) | (1L << OpenParen) | (1L << OpenBrace) | (1L << PlusPlus) | (1L << MinusMinus) | (1L << Plus) | (1L << Minus) | (1L << BitNot) | (1L << Not) | (1L << AssertIn) | (1L << AssertNotIn) | (1L << AssertLessThan) | (1L << AssertMoreThan) | (1L << AssertLessThanEquals) | (1L << AssertGreaterThanEquals) | (1L << AssertEquals) | (1L << AssertNotEquals) | (1L << NullLiteral) | (1L << BooleanLiteral) | (1L << DecimalLiteral) | (1L << HexIntegerLiteral))) != 0) || ((((_la - 64)) & ~0x3f) == 0 && ((1L << (_la - 64)) & ((1L << (OctalIntegerLiteral - 64)) | (1L << (Typeof - 64)) | (1L << (New - 64)) | (1L << (Void - 64)) | (1L << (Function - 64)) | (1L << (This - 64)) | (1L << (Delete - 64)) | (1L << (Identifier - 64)) | (1L << (StringLiteral - 64)))) != 0)) {
 				{
 				setState(480); argumentList();
 				}
@@ -4282,6 +4283,8 @@ public class HL7MappingValidatorParser extends Parser {
 				setState(519); singleExpression(23);
 				}
 				break;
+			case AssertIn:
+			case AssertNotIn:
 			case AssertLessThan:
 			case AssertMoreThan:
 			case AssertLessThanEquals:
@@ -4810,7 +4813,7 @@ public class HL7MappingValidatorParser extends Parser {
 			{
 			setState(628);
 			_la = _input.LA(1);
-			if ( !((((_la) & ~0x3f) == 0 && ((1L << _la) & ((1L << DecimalLiteral) | (1L << HexIntegerLiteral) | (1L << OctalIntegerLiteral))) != 0)) ) {
+			if ( !(((((_la - 62)) & ~0x3f) == 0 && ((1L << (_la - 62)) & ((1L << (DecimalLiteral - 62)) | (1L << (HexIntegerLiteral - 62)) | (1L << (OctalIntegerLiteral - 62)))) != 0)) ) {
 			_errHandler.recoverInline(this);
 			}
 			consume();
@@ -5096,7 +5099,7 @@ public class HL7MappingValidatorParser extends Parser {
 			{
 			setState(639);
 			_la = _input.LA(1);
-			if ( !(((((_la - 63)) & ~0x3f) == 0 && ((1L << (_la - 63)) & ((1L << (Break - 63)) | (1L << (Do - 63)) | (1L << (Instanceof - 63)) | (1L << (Typeof - 63)) | (1L << (Case - 63)) | (1L << (Else - 63)) | (1L << (New - 63)) | (1L << (Var - 63)) | (1L << (Catch - 63)) | (1L << (Finally - 63)) | (1L << (Return - 63)) | (1L << (Void - 63)) | (1L << (Continue - 63)) | (1L << (For - 63)) | (1L << (Switch - 63)) | (1L << (While - 63)) | (1L << (Debugger - 63)) | (1L << (Function - 63)) | (1L << (This - 63)) | (1L << (With - 63)) | (1L << (Default - 63)) | (1L << (If - 63)) | (1L << (Throw - 63)) | (1L << (Delete - 63)) | (1L << (In - 63)) | (1L << (Try - 63)))) != 0)) ) {
+			if ( !(((((_la - 65)) & ~0x3f) == 0 && ((1L << (_la - 65)) & ((1L << (Break - 65)) | (1L << (Do - 65)) | (1L << (Instanceof - 65)) | (1L << (Typeof - 65)) | (1L << (Case - 65)) | (1L << (Else - 65)) | (1L << (New - 65)) | (1L << (Var - 65)) | (1L << (Catch - 65)) | (1L << (Finally - 65)) | (1L << (Return - 65)) | (1L << (Void - 65)) | (1L << (Continue - 65)) | (1L << (For - 65)) | (1L << (Switch - 65)) | (1L << (While - 65)) | (1L << (Debugger - 65)) | (1L << (Function - 65)) | (1L << (This - 65)) | (1L << (With - 65)) | (1L << (Default - 65)) | (1L << (If - 65)) | (1L << (Throw - 65)) | (1L << (Delete - 65)) | (1L << (In - 65)) | (1L << (Try - 65)))) != 0)) ) {
 			_errHandler.recoverInline(this);
 			}
 			consume();
@@ -5158,7 +5161,7 @@ public class HL7MappingValidatorParser extends Parser {
 			{
 			setState(641);
 			_la = _input.LA(1);
-			if ( !(((((_la - 89)) & ~0x3f) == 0 && ((1L << (_la - 89)) & ((1L << (Class - 89)) | (1L << (Enum - 89)) | (1L << (Extends - 89)) | (1L << (Super - 89)) | (1L << (Const - 89)) | (1L << (Export - 89)) | (1L << (Import - 89)) | (1L << (Implements - 89)) | (1L << (Let - 89)) | (1L << (Private - 89)) | (1L << (Public - 89)) | (1L << (Interface - 89)) | (1L << (Package - 89)) | (1L << (Protected - 89)) | (1L << (Static - 89)) | (1L << (Yield - 89)))) != 0)) ) {
+			if ( !(((((_la - 91)) & ~0x3f) == 0 && ((1L << (_la - 91)) & ((1L << (Class - 91)) | (1L << (Enum - 91)) | (1L << (Extends - 91)) | (1L << (Super - 91)) | (1L << (Const - 91)) | (1L << (Export - 91)) | (1L << (Import - 91)) | (1L << (Implements - 91)) | (1L << (Let - 91)) | (1L << (Private - 91)) | (1L << (Public - 91)) | (1L << (Interface - 91)) | (1L << (Package - 91)) | (1L << (Protected - 91)) | (1L << (Static - 91)) | (1L << (Yield - 91)))) != 0)) ) {
 			_errHandler.recoverInline(this);
 			}
 			consume();
@@ -5376,6 +5379,8 @@ public class HL7MappingValidatorParser extends Parser {
 		public TerminalNode AssertNotEquals() { return getToken(HL7MappingValidatorParser.AssertNotEquals, 0); }
 		public TerminalNode AssertLessThanEquals() { return getToken(HL7MappingValidatorParser.AssertLessThanEquals, 0); }
 		public TerminalNode AssertEquals() { return getToken(HL7MappingValidatorParser.AssertEquals, 0); }
+		public TerminalNode AssertNotIn() { return getToken(HL7MappingValidatorParser.AssertNotIn, 0); }
+		public TerminalNode AssertIn() { return getToken(HL7MappingValidatorParser.AssertIn, 0); }
 		public AssertionOperatorContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
@@ -5404,7 +5409,7 @@ public class HL7MappingValidatorParser extends Parser {
 			{
 			setState(657);
 			_la = _input.LA(1);
-			if ( !((((_la) & ~0x3f) == 0 && ((1L << _la) & ((1L << AssertLessThan) | (1L << AssertMoreThan) | (1L << AssertLessThanEquals) | (1L << AssertGreaterThanEquals) | (1L << AssertEquals) | (1L << AssertNotEquals))) != 0)) ) {
+			if ( !((((_la) & ~0x3f) == 0 && ((1L << _la) & ((1L << AssertIn) | (1L << AssertNotIn) | (1L << AssertLessThan) | (1L << AssertMoreThan) | (1L << AssertLessThanEquals) | (1L << AssertGreaterThanEquals) | (1L << AssertEquals) | (1L << AssertNotEquals))) != 0)) ) {
 			_errHandler.recoverInline(this);
 			}
 			consume();
@@ -5485,7 +5490,7 @@ public class HL7MappingValidatorParser extends Parser {
 	}
 
 	public static final String _serializedATN =
-		"\3\u0430\ud6d1\u8206\uad2d\u4417\uaef1\u8d80\uaadd\3p\u0296\4\2\t\2\4"+
+		"\3\u0430\ud6d1\u8206\uad2d\u4417\uaef1\u8d80\uaadd\3r\u0296\4\2\t\2\4"+
 		"\3\t\3\4\4\t\4\4\5\t\5\4\6\t\6\4\7\t\7\4\b\t\b\4\t\t\t\4\n\t\n\4\13\t"+
 		"\13\4\f\t\f\4\r\t\r\4\16\t\16\4\17\t\17\4\20\t\20\4\21\t\21\4\22\t\22"+
 		"\4\23\t\23\4\24\t\24\4\25\t\25\4\26\t\26\4\27\t\27\4\30\t\30\4\31\t\31"+
@@ -5534,8 +5539,8 @@ public class HL7MappingValidatorParser extends Parser {
 		"\n\66\3\67\3\67\3\67\5\67\u0280\n\67\38\38\39\39\3:\3:\3:\3;\3;\3;\3<"+
 		"\3<\3<\3<\5<\u0290\n<\3=\3=\3>\3>\3>\2\3b?\2\4\6\b\n\f\16\20\22\24\26"+
 		"\30\32\34\36 \"$&(*,.\60\62\64\668:<>@BDFHJLNPRTVXZ\\^`bdfhjlnprtvxz\2"+
-		"\16\3\2\30\32\3\2\24\25\3\2\33\35\3\2\36!\3\2\"%\3\2+\65\5\2\4\4<=ll\3"+
-		"\2>@\3\2<=\3\2AZ\3\2[j\3\2\66;\u02ca\2}\3\2\2\2\4\u0083\3\2\2\2\6\u0085"+
+		"\16\3\2\30\32\3\2\24\25\3\2\33\35\3\2\36!\3\2\"%\3\2+\65\5\2\4\4>?nn\3"+
+		"\2@B\3\2>?\3\2C\\\3\2]l\3\2\66=\u02ca\2}\3\2\2\2\4\u0083\3\2\2\2\6\u0085"+
 		"\3\2\2\2\b\u008d\3\2\2\2\n\u0093\3\2\2\2\f\u0098\3\2\2\2\16\u009d\3\2"+
 		"\2\2\20\u00a3\3\2\2\2\22\u00b4\3\2\2\2\24\u00b6\3\2\2\2\26\u00bd\3\2\2"+
 		"\2\30\u00c1\3\2\2\2\32\u00c5\3\2\2\2\34\u00cd\3\2\2\2\36\u00d1\3\2\2\2"+
@@ -5574,44 +5579,44 @@ public class HL7MappingValidatorParser extends Parser {
 		"\2\u00b8\u00b9\3\2\2\2\u00b9\u00ba\3\2\2\2\u00ba\u00bb\7\13\2\2\u00bb"+
 		"\25\3\2\2\2\u00bc\u00be\5\22\n\2\u00bd\u00bc\3\2\2\2\u00be\u00bf\3\2\2"+
 		"\2\u00bf\u00bd\3\2\2\2\u00bf\u00c0\3\2\2\2\u00c0\27\3\2\2\2\u00c1\u00c2"+
-		"\7H\2\2\u00c2\u00c3\5\32\16\2\u00c3\u00c4\5v<\2\u00c4\31\3\2\2\2\u00c5"+
+		"\7J\2\2\u00c2\u00c3\5\32\16\2\u00c3\u00c4\5v<\2\u00c4\31\3\2\2\2\u00c5"+
 		"\u00ca\5\34\17\2\u00c6\u00c7\7\r\2\2\u00c7\u00c9\5\34\17\2\u00c8\u00c6"+
 		"\3\2\2\2\u00c9\u00cc\3\2\2\2\u00ca\u00c8\3\2\2\2\u00ca\u00cb\3\2\2\2\u00cb"+
-		"\33\3\2\2\2\u00cc\u00ca\3\2\2\2\u00cd\u00cf\7k\2\2\u00ce\u00d0\5\36\20"+
+		"\33\3\2\2\2\u00cc\u00ca\3\2\2\2\u00cd\u00cf\7m\2\2\u00ce\u00d0\5\36\20"+
 		"\2\u00cf\u00ce\3\2\2\2\u00cf\u00d0\3\2\2\2\u00d0\35\3\2\2\2\u00d1\u00d2"+
 		"\7\16\2\2\u00d2\u00d3\5b\62\2\u00d3\37\3\2\2\2\u00d4\u00d5\7\f\2\2\u00d5"+
 		"!\3\2\2\2\u00d6\u00d7\6\22\2\2\u00d7\u00d8\5`\61\2\u00d8\u00d9\7\f\2\2"+
-		"\u00d9#\3\2\2\2\u00da\u00db\7V\2\2\u00db\u00dc\7\b\2\2\u00dc\u00dd\5`"+
-		"\61\2\u00dd\u00de\7\t\2\2\u00de\u00e1\5\22\n\2\u00df\u00e0\7F\2\2\u00e0"+
+		"\u00d9#\3\2\2\2\u00da\u00db\7X\2\2\u00db\u00dc\7\b\2\2\u00dc\u00dd\5`"+
+		"\61\2\u00dd\u00de\7\t\2\2\u00de\u00e1\5\22\n\2\u00df\u00e0\7H\2\2\u00e0"+
 		"\u00e2\5\22\n\2\u00e1\u00df\3\2\2\2\u00e1\u00e2\3\2\2\2\u00e2%\3\2\2\2"+
-		"\u00e3\u00e4\7B\2\2\u00e4\u00e5\5\22\n\2\u00e5\u00e6\7P\2\2\u00e6\u00e7"+
+		"\u00e3\u00e4\7D\2\2\u00e4\u00e5\5\22\n\2\u00e5\u00e6\7R\2\2\u00e6\u00e7"+
 		"\7\b\2\2\u00e7\u00e8\5`\61\2\u00e8\u00e9\7\t\2\2\u00e9\u00ea\5v<\2\u00ea"+
-		"\u0121\3\2\2\2\u00eb\u00ec\7P\2\2\u00ec\u00ed\7\b\2\2\u00ed\u00ee\5`\61"+
+		"\u0121\3\2\2\2\u00eb\u00ec\7R\2\2\u00ec\u00ed\7\b\2\2\u00ed\u00ee\5`\61"+
 		"\2\u00ee\u00ef\7\t\2\2\u00ef\u00f0\5\22\n\2\u00f0\u0121\3\2\2\2\u00f1"+
-		"\u00f2\7N\2\2\u00f2\u00f4\7\b\2\2\u00f3\u00f5\5`\61\2\u00f4\u00f3\3\2"+
+		"\u00f2\7P\2\2\u00f2\u00f4\7\b\2\2\u00f3\u00f5\5`\61\2\u00f4\u00f3\3\2"+
 		"\2\2\u00f4\u00f5\3\2\2\2\u00f5\u00f6\3\2\2\2\u00f6\u00f8\7\f\2\2\u00f7"+
 		"\u00f9\5`\61\2\u00f8\u00f7\3\2\2\2\u00f8\u00f9\3\2\2\2\u00f9\u00fa\3\2"+
 		"\2\2\u00fa\u00fc\7\f\2\2\u00fb\u00fd\5`\61\2\u00fc\u00fb\3\2\2\2\u00fc"+
 		"\u00fd\3\2\2\2\u00fd\u00fe\3\2\2\2\u00fe\u00ff\7\t\2\2\u00ff\u0121\5\22"+
-		"\n\2\u0100\u0101\7N\2\2\u0101\u0102\7\b\2\2\u0102\u0103\7H\2\2\u0103\u0104"+
+		"\n\2\u0100\u0101\7P\2\2\u0101\u0102\7\b\2\2\u0102\u0103\7J\2\2\u0103\u0104"+
 		"\5\32\16\2\u0104\u0106\7\f\2\2\u0105\u0107\5`\61\2\u0106\u0105\3\2\2\2"+
 		"\u0106\u0107\3\2\2\2\u0107\u0108\3\2\2\2\u0108\u010a\7\f\2\2\u0109\u010b"+
 		"\5`\61\2\u010a\u0109\3\2\2\2\u010a\u010b\3\2\2\2\u010b\u010c\3\2\2\2\u010c"+
 		"\u010d\7\t\2\2\u010d\u010e\5\22\n\2\u010e\u0121\3\2\2\2\u010f\u0110\7"+
-		"N\2\2\u0110\u0111\7\b\2\2\u0111\u0112\5b\62\2\u0112\u0113\7Y\2\2\u0113"+
+		"P\2\2\u0110\u0111\7\b\2\2\u0111\u0112\5b\62\2\u0112\u0113\7[\2\2\u0113"+
 		"\u0114\5`\61\2\u0114\u0115\7\t\2\2\u0115\u0116\5\22\n\2\u0116\u0121\3"+
-		"\2\2\2\u0117\u0118\7N\2\2\u0118\u0119\7\b\2\2\u0119\u011a\7H\2\2\u011a"+
-		"\u011b\5\34\17\2\u011b\u011c\7Y\2\2\u011c\u011d\5`\61\2\u011d\u011e\7"+
+		"\2\2\2\u0117\u0118\7P\2\2\u0118\u0119\7\b\2\2\u0119\u011a\7J\2\2\u011a"+
+		"\u011b\5\34\17\2\u011b\u011c\7[\2\2\u011c\u011d\5`\61\2\u011d\u011e\7"+
 		"\t\2\2\u011e\u011f\5\22\n\2\u011f\u0121\3\2\2\2\u0120\u00e3\3\2\2\2\u0120"+
 		"\u00eb\3\2\2\2\u0120\u00f1\3\2\2\2\u0120\u0100\3\2\2\2\u0120\u010f\3\2"+
-		"\2\2\u0120\u0117\3\2\2\2\u0121\'\3\2\2\2\u0122\u0124\7M\2\2\u0123\u0125"+
-		"\7k\2\2\u0124\u0123\3\2\2\2\u0124\u0125\3\2\2\2\u0125\u0126\3\2\2\2\u0126"+
-		"\u0127\5v<\2\u0127)\3\2\2\2\u0128\u012a\7A\2\2\u0129\u012b\7k\2\2\u012a"+
+		"\2\2\u0120\u0117\3\2\2\2\u0121\'\3\2\2\2\u0122\u0124\7O\2\2\u0123\u0125"+
+		"\7m\2\2\u0124\u0123\3\2\2\2\u0124\u0125\3\2\2\2\u0125\u0126\3\2\2\2\u0126"+
+		"\u0127\5v<\2\u0127)\3\2\2\2\u0128\u012a\7C\2\2\u0129\u012b\7m\2\2\u012a"+
 		"\u0129\3\2\2\2\u012a\u012b\3\2\2\2\u012b\u012c\3\2\2\2\u012c\u012d\5v"+
-		"<\2\u012d+\3\2\2\2\u012e\u0130\7K\2\2\u012f\u0131\5`\61\2\u0130\u012f"+
+		"<\2\u012d+\3\2\2\2\u012e\u0130\7M\2\2\u012f\u0131\5`\61\2\u0130\u012f"+
 		"\3\2\2\2\u0130\u0131\3\2\2\2\u0131\u0132\3\2\2\2\u0132\u0133\5v<\2\u0133"+
-		"-\3\2\2\2\u0134\u0135\7T\2\2\u0135\u0136\7\b\2\2\u0136\u0137\5`\61\2\u0137"+
-		"\u0138\7\t\2\2\u0138\u0139\5\22\n\2\u0139/\3\2\2\2\u013a\u013b\7O\2\2"+
+		"-\3\2\2\2\u0134\u0135\7V\2\2\u0135\u0136\7\b\2\2\u0136\u0137\5`\61\2\u0137"+
+		"\u0138\7\t\2\2\u0138\u0139\5\22\n\2\u0139/\3\2\2\2\u013a\u013b\7Q\2\2"+
 		"\u013b\u013c\7\b\2\2\u013c\u013d\5`\61\2\u013d\u013e\7\t\2\2\u013e\u013f"+
 		"\5\62\32\2\u013f\61\3\2\2\2\u0140\u0142\7\n\2\2\u0141\u0143\5\64\33\2"+
 		"\u0142\u0141\3\2\2\2\u0142\u0143\3\2\2\2\u0143\u0148\3\2\2\2\u0144\u0146"+
@@ -5619,24 +5624,24 @@ public class HL7MappingValidatorParser extends Parser {
 		"\u0147\u0149\3\2\2\2\u0148\u0144\3\2\2\2\u0148\u0149\3\2\2\2\u0149\u014a"+
 		"\3\2\2\2\u014a\u014b\7\13\2\2\u014b\63\3\2\2\2\u014c\u014e\5\66\34\2\u014d"+
 		"\u014c\3\2\2\2\u014e\u014f\3\2\2\2\u014f\u014d\3\2\2\2\u014f\u0150\3\2"+
-		"\2\2\u0150\65\3\2\2\2\u0151\u0152\7E\2\2\u0152\u0153\5`\61\2\u0153\u0155"+
+		"\2\2\u0150\65\3\2\2\2\u0151\u0152\7G\2\2\u0152\u0153\5`\61\2\u0153\u0155"+
 		"\7\20\2\2\u0154\u0156\5\26\f\2\u0155\u0154\3\2\2\2\u0155\u0156\3\2\2\2"+
-		"\u0156\67\3\2\2\2\u0157\u0158\7U\2\2\u0158\u015a\7\20\2\2\u0159\u015b"+
+		"\u0156\67\3\2\2\2\u0157\u0158\7W\2\2\u0158\u015a\7\20\2\2\u0159\u015b"+
 		"\5\26\f\2\u015a\u0159\3\2\2\2\u015a\u015b\3\2\2\2\u015b9\3\2\2\2\u015c"+
-		"\u015d\7k\2\2\u015d\u015e\7\20\2\2\u015e\u015f\5\22\n\2\u015f;\3\2\2\2"+
-		"\u0160\u0161\7W\2\2\u0161\u0162\5`\61\2\u0162\u0163\5v<\2\u0163=\3\2\2"+
-		"\2\u0164\u0165\7Z\2\2\u0165\u0166\5\24\13\2\u0166\u0167\5@!\2\u0167\u0172"+
-		"\3\2\2\2\u0168\u0169\7Z\2\2\u0169\u016a\5\24\13\2\u016a\u016b\5B\"\2\u016b"+
-		"\u0172\3\2\2\2\u016c\u016d\7Z\2\2\u016d\u016e\5\24\13\2\u016e\u016f\5"+
-		"@!\2\u016f\u0170\5B\"\2\u0170\u0172\3\2\2\2\u0171\u0164\3\2\2\2\u0171"+
-		"\u0168\3\2\2\2\u0171\u016c\3\2\2\2\u0172?\3\2\2\2\u0173\u0174\7I\2\2\u0174"+
-		"\u0175\7\b\2\2\u0175\u0176\7k\2\2\u0176\u0177\7\t\2\2\u0177\u0178\5\24"+
-		"\13\2\u0178A\3\2\2\2\u0179\u017a\7J\2\2\u017a\u017b\5\24\13\2\u017bC\3"+
-		"\2\2\2\u017c\u017d\7Q\2\2\u017d\u017e\5v<\2\u017eE\3\2\2\2\u017f\u0180"+
-		"\7R\2\2\u0180\u0181\7k\2\2\u0181\u0183\7\b\2\2\u0182\u0184\5H%\2\u0183"+
+		"\u015d\7m\2\2\u015d\u015e\7\20\2\2\u015e\u015f\5\22\n\2\u015f;\3\2\2\2"+
+		"\u0160\u0161\7Y\2\2\u0161\u0162\5`\61\2\u0162\u0163\5v<\2\u0163=\3\2\2"+
+		"\2\u0164\u0165\7\\\2\2\u0165\u0166\5\24\13\2\u0166\u0167\5@!\2\u0167\u0172"+
+		"\3\2\2\2\u0168\u0169\7\\\2\2\u0169\u016a\5\24\13\2\u016a\u016b\5B\"\2"+
+		"\u016b\u0172\3\2\2\2\u016c\u016d\7\\\2\2\u016d\u016e\5\24\13\2\u016e\u016f"+
+		"\5@!\2\u016f\u0170\5B\"\2\u0170\u0172\3\2\2\2\u0171\u0164\3\2\2\2\u0171"+
+		"\u0168\3\2\2\2\u0171\u016c\3\2\2\2\u0172?\3\2\2\2\u0173\u0174\7K\2\2\u0174"+
+		"\u0175\7\b\2\2\u0175\u0176\7m\2\2\u0176\u0177\7\t\2\2\u0177\u0178\5\24"+
+		"\13\2\u0178A\3\2\2\2\u0179\u017a\7L\2\2\u017a\u017b\5\24\13\2\u017bC\3"+
+		"\2\2\2\u017c\u017d\7S\2\2\u017d\u017e\5v<\2\u017eE\3\2\2\2\u017f\u0180"+
+		"\7T\2\2\u0180\u0181\7m\2\2\u0181\u0183\7\b\2\2\u0182\u0184\5H%\2\u0183"+
 		"\u0182\3\2\2\2\u0183\u0184\3\2\2\2\u0184\u0185\3\2\2\2\u0185\u0186\7\t"+
 		"\2\2\u0186\u0187\7\n\2\2\u0187\u0188\5J&\2\u0188\u0189\7\13\2\2\u0189"+
-		"G\3\2\2\2\u018a\u018f\7k\2\2\u018b\u018c\7\r\2\2\u018c\u018e\7k\2\2\u018d"+
+		"G\3\2\2\2\u018a\u018f\7m\2\2\u018b\u018c\7\r\2\2\u018c\u018e\7m\2\2\u018d"+
 		"\u018b\3\2\2\2\u018e\u0191\3\2\2\2\u018f\u018d\3\2\2\2\u018f\u0190\3\2"+
 		"\2\2\u0190I\3\2\2\2\u0191\u018f\3\2\2\2\u0192\u0194\5\16\b\2\u0193\u0192"+
 		"\3\2\2\2\u0193\u0194\3\2\2\2\u0194K\3\2\2\2\u0195\u0197\7\6\2\2\u0196"+
@@ -5662,8 +5667,8 @@ public class HL7MappingValidatorParser extends Parser {
 		"\7\b\2\2\u01d2\u01d3\5Z.\2\u01d3\u01d4\7\t\2\2\u01d4\u01d5\7\n\2\2\u01d5"+
 		"\u01d6\5J&\2\u01d6\u01d7\7\13\2\2\u01d7\u01d9\3\2\2\2\u01d8\u01c5\3\2"+
 		"\2\2\u01d8\u01c9\3\2\2\2\u01d8\u01d0\3\2\2\2\u01d9W\3\2\2\2\u01da\u01de"+
-		"\5j\66\2\u01db\u01de\7l\2\2\u01dc\u01de\5h\65\2\u01dd\u01da\3\2\2\2\u01dd"+
-		"\u01db\3\2\2\2\u01dd\u01dc\3\2\2\2\u01deY\3\2\2\2\u01df\u01e0\7k\2\2\u01e0"+
+		"\5j\66\2\u01db\u01de\7n\2\2\u01dc\u01de\5h\65\2\u01dd\u01da\3\2\2\2\u01dd"+
+		"\u01db\3\2\2\2\u01dd\u01dc\3\2\2\2\u01deY\3\2\2\2\u01df\u01e0\7m\2\2\u01e0"+
 		"[\3\2\2\2\u01e1\u01e3\7\b\2\2\u01e2\u01e4\5^\60\2\u01e3\u01e2\3\2\2\2"+
 		"\u01e3\u01e4\3\2\2\2\u01e4\u01e5\3\2\2\2\u01e5\u01e6\7\t\2\2\u01e6]\3"+
 		"\2\2\2\u01e7\u01ec\5b\62\2\u01e8\u01e9\7\r\2\2\u01e9\u01eb\5b\62\2\u01ea"+
@@ -5671,19 +5676,19 @@ public class HL7MappingValidatorParser extends Parser {
 		"\2\2\u01ed_\3\2\2\2\u01ee\u01ec\3\2\2\2\u01ef\u01f4\5b\62\2\u01f0\u01f1"+
 		"\7\r\2\2\u01f1\u01f3\5b\62\2\u01f2\u01f0\3\2\2\2\u01f3\u01f6\3\2\2\2\u01f4"+
 		"\u01f2\3\2\2\2\u01f4\u01f5\3\2\2\2\u01f5a\3\2\2\2\u01f6\u01f4\3\2\2\2"+
-		"\u01f7\u01f8\b\62\1\2\u01f8\u01f9\7X\2\2\u01f9\u0229\5b\62!\u01fa\u01fb"+
-		"\7L\2\2\u01fb\u0229\5b\62 \u01fc\u01fd\7D\2\2\u01fd\u0229\5b\62\37\u01fe"+
+		"\u01f7\u01f8\b\62\1\2\u01f8\u01f9\7Z\2\2\u01f9\u0229\5b\62!\u01fa\u01fb"+
+		"\7N\2\2\u01fb\u0229\5b\62 \u01fc\u01fd\7F\2\2\u01fd\u0229\5b\62\37\u01fe"+
 		"\u01ff\7\22\2\2\u01ff\u0229\5b\62\36\u0200\u0201\7\23\2\2\u0201\u0229"+
 		"\5b\62\35\u0202\u0203\7\24\2\2\u0203\u0229\5b\62\34\u0204\u0205\7\25\2"+
 		"\2\u0205\u0229\5b\62\33\u0206\u0207\7\26\2\2\u0207\u0229\5b\62\32\u0208"+
 		"\u0209\7\27\2\2\u0209\u0229\5b\62\31\u020a\u020b\5z>\2\u020b\u020c\5b"+
-		"\62\3\u020c\u0229\3\2\2\2\u020d\u020f\7R\2\2\u020e\u0210\7k\2\2\u020f"+
+		"\62\3\u020c\u0229\3\2\2\2\u020d\u020f\7T\2\2\u020e\u0210\7m\2\2\u020f"+
 		"\u020e\3\2\2\2\u020f\u0210\3\2\2\2\u0210\u0211\3\2\2\2\u0211\u0213\7\b"+
 		"\2\2\u0212\u0214\5H%\2\u0213\u0212\3\2\2\2\u0213\u0214\3\2\2\2\u0214\u0215"+
 		"\3\2\2\2\u0215\u0216\7\t\2\2\u0216\u0217\7\n\2\2\u0217\u0218\5J&\2\u0218"+
-		"\u0219\7\13\2\2\u0219\u0229\3\2\2\2\u021a\u021b\7G\2\2\u021b\u021d\5b"+
+		"\u0219\7\13\2\2\u0219\u0229\3\2\2\2\u021a\u021b\7I\2\2\u021b\u021d\5b"+
 		"\62\2\u021c\u021e\5\\/\2\u021d\u021c\3\2\2\2\u021d\u021e\3\2\2\2\u021e"+
-		"\u0229\3\2\2\2\u021f\u0229\7S\2\2\u0220\u0229\7k\2\2\u0221\u0229\5f\64"+
+		"\u0229\3\2\2\2\u021f\u0229\7U\2\2\u0220\u0229\7m\2\2\u0221\u0229\5f\64"+
 		"\2\u0222\u0229\5L\'\2\u0223\u0229\5R*\2\u0224\u0225\7\b\2\2\u0225\u0226"+
 		"\5`\61\2\u0226\u0227\7\t\2\2\u0227\u0229\3\2\2\2\u0228\u01f7\3\2\2\2\u0228"+
 		"\u01fa\3\2\2\2\u0228\u01fc\3\2\2\2\u0228\u01fe\3\2\2\2\u0228\u0200\3\2"+
@@ -5695,7 +5700,7 @@ public class HL7MappingValidatorParser extends Parser {
 		"\u022e\f\27\2\2\u022e\u022f\t\3\2\2\u022f\u026c\5b\62\30\u0230\u0231\f"+
 		"\26\2\2\u0231\u0232\t\4\2\2\u0232\u026c\5b\62\27\u0233\u0234\f\25\2\2"+
 		"\u0234\u0235\t\5\2\2\u0235\u026c\5b\62\26\u0236\u0237\f\24\2\2\u0237\u0238"+
-		"\7C\2\2\u0238\u026c\5b\62\25\u0239\u023a\f\23\2\2\u023a\u023b\7Y\2\2\u023b"+
+		"\7E\2\2\u0238\u026c\5b\62\25\u0239\u023a\f\23\2\2\u023a\u023b\7[\2\2\u023b"+
 		"\u026c\5b\62\24\u023c\u023d\f\22\2\2\u023d\u023e\t\6\2\2\u023e\u026c\5"+
 		"b\62\23\u023f\u0240\f\21\2\2\u0240\u0241\7&\2\2\u0241\u026c\5b\62\22\u0242"+
 		"\u0243\f\20\2\2\u0243\u0244\7\'\2\2\u0244\u026c\5b\62\21\u0245\u0246\f"+
@@ -5719,12 +5724,12 @@ public class HL7MappingValidatorParser extends Parser {
 		"\u026e\3\2\2\2\u026ec\3\2\2\2\u026f\u026d\3\2\2\2\u0270\u0271\t\7\2\2"+
 		"\u0271e\3\2\2\2\u0272\u0275\t\b\2\2\u0273\u0275\5h\65\2\u0274\u0272\3"+
 		"\2\2\2\u0274\u0273\3\2\2\2\u0275g\3\2\2\2\u0276\u0277\t\t\2\2\u0277i\3"+
-		"\2\2\2\u0278\u027b\7k\2\2\u0279\u027b\5l\67\2\u027a\u0278\3\2\2\2\u027a"+
+		"\2\2\2\u0278\u027b\7m\2\2\u0279\u027b\5l\67\2\u027a\u0278\3\2\2\2\u027a"+
 		"\u0279\3\2\2\2\u027bk\3\2\2\2\u027c\u0280\5n8\2\u027d\u0280\5p9\2\u027e"+
 		"\u0280\t\n\2\2\u027f\u027c\3\2\2\2\u027f\u027d\3\2\2\2\u027f\u027e\3\2"+
 		"\2\2\u0280m\3\2\2\2\u0281\u0282\t\13\2\2\u0282o\3\2\2\2\u0283\u0284\t"+
-		"\f\2\2\u0284q\3\2\2\2\u0285\u0286\6:\31\2\u0286\u0287\7k\2\2\u0287s\3"+
-		"\2\2\2\u0288\u0289\6;\32\2\u0289\u028a\7k\2\2\u028au\3\2\2\2\u028b\u0290"+
+		"\f\2\2\u0284q\3\2\2\2\u0285\u0286\6:\31\2\u0286\u0287\7m\2\2\u0287s\3"+
+		"\2\2\2\u0288\u0289\6;\32\2\u0289\u028a\7m\2\2\u028au\3\2\2\2\u028b\u0290"+
 		"\7\f\2\2\u028c\u0290\7\2\2\3\u028d\u0290\6<\33\2\u028e\u0290\6<\34\2\u028f"+
 		"\u028b\3\2\2\2\u028f\u028c\3\2\2\2\u028f\u028d\3\2\2\2\u028f\u028e\3\2"+
 		"\2\2\u0290w\3\2\2\2\u0291\u0292\7\2\2\3\u0292y\3\2\2\2\u0293\u0294\t\r"+

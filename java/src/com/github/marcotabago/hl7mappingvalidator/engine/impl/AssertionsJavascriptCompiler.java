@@ -111,6 +111,10 @@ public class AssertionsJavascriptCompiler implements JavascriptCompiler {
 				Object actualValue = nativeObject.get("actualValue");
 				String operator = (String) nativeObject.get("operator");
 				Object expectedValue = nativeObject.get("expectedValue");
+				if (expectedValue instanceof NativeArray) {
+					NativeArray expectedValueNativeArray = (NativeArray) expectedValue;
+					expectedValue = expectedValueNativeArray.toArray();
+				}
 				assertionStatements.add(new MappingAssertionStatement(
 						actualValuePath, actualValue, operator, expectedValue));
 			}

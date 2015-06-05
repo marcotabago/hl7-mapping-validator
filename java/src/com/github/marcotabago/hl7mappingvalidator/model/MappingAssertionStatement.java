@@ -11,7 +11,7 @@ public class MappingAssertionStatement {
 	private Object expectedValue;
 
 	public enum Operator {
-		AssertLessThan, AssertMoreThan, AssertLessThanEquals, AssertGreaterThanEquals, AssertEquals, AssertNotEquals
+		AssertLessThan, AssertMoreThan, AssertLessThanEquals, AssertGreaterThanEquals, AssertEquals, AssertNotEquals, AssertIn, AssertNotIn
 	}
 
 	public MappingAssertionStatement(String actualValuePath,
@@ -30,6 +30,10 @@ public class MappingAssertionStatement {
 			this.operator = Operator.AssertMoreThan;
 		} else if (operatorString.equals("?>=")) {
 			this.operator = Operator.AssertGreaterThanEquals;
+		} else if (operatorString.equals("?:")) {
+			this.operator = Operator.AssertIn;
+		} else if (operatorString.equals("?!:")) {
+			this.operator = Operator.AssertNotIn;
 		}
 		this.expectedValue = expectedValue;
 	}
